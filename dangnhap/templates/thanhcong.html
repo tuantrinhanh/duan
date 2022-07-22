@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align:center">
+    <div>
+    <h1>Đăng nhập thành công</h1>
+        {% if ds_nguoidung %}
+        <table id="user" border="1" style="text-align: left;" align="center">
+            <thead>
+                <tr>
+                    <th>Tên đăng nhập</th>
+                    <th>Email</th>
+                    <th>Mật khẩu</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dt in ds_nguoidung %}
+                <tr>
+                    <td><a href="{%url 'chi_tiet' dt.id %}"> {{dt.ten_dang_nhap}}</a></td>
+                    <td>{{dt.email}}</td>
+                    <td>{{dt.mat_khau}}</td>
+                    <td><a href="{%url 'xoa_nguoidung' dt.id %}"> Xóa</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="text-align: center;">Chưa có dữ liệu</p>
+        {% endif %}
+        <form action="/dangnhap">
+            <tr>
+                <input type="submit" name="back" value="Back to dangnhap">
+            </tr>
+        </form>
+    </div>
+</body>
+</html>

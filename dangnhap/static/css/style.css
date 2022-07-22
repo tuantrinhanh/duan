@@ -1,0 +1,7 @@
+body{
+    background-color: aqua;
+}
+.hinhnen{
+    background: url("/static/img/nen4.jpg") 50% 0 no-repeat fixed;
+    width: 100%;
+}
